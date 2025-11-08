@@ -1,0 +1,21 @@
+{
+  "name": "back_end",
+  "version": "1.0.0",
+  "description": "Technical Challenge 1 Backend Node Express, Front End Angular, Database MongoDB",
+  "license": "ISC",
+  "author": "Sergio Enrique Polo Santanilla",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev":"nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
