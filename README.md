@@ -44,15 +44,26 @@ This project implements a technical challenge for a MEAN Stack developer with co
 
 ```json
 {
-  "codigo": "Number",
-  "nombre": "String",
-  "apellido1": "String",
-  "apellido2": "String",
-  "codigodepartamento": "Number"
+  "code": "String",
+  "name": "String",
+  "last_name1": "String",
+  "last_name2": "String",
+  "roleId": "Number",
+  "departmentId":"Number",
+  "userStatus":"Boolean"
 }
 ```
 
 ## Department Data Structure
+
+```json
+{
+  "name": "String",
+  "description": "String"
+}
+```
+
+## Role Data Structure
 
 ```json
 {
