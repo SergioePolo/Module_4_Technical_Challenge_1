@@ -20,6 +20,7 @@
                 }
             </tr>
         </thead>
+
         <tbody>
             @if (type === 'users') {
             @for (user of data; track user.id) {
@@ -27,11 +28,15 @@
                 <td>{{ user.code }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.last_name1 }} {{ user.last_name2 }}</td>
-                <td>{{user.roleId.name}}</td>
-                <td>{{user.departmentId.name}}</td>
-                <td>
-                    <button class="btn btn-primary">Actualizar</button>
-                    <button class="btn btn-danger"(click)="removeUser(user._id)">Eliminar</button>
+                <td>{{ user.roleId.name }}</td>
+                <td>{{ user.departmentId.name }}</td>
+                <td class="action-buttons">
+                    <button class="btn btn-primary" routerLink="/manage-employees">
+                        Actualizar
+                    </button>
+                    <button class="btn btn-danger" (click)="removeUser(user._id)">
+                        Eliminar
+                    </button>
                 </td>
             </tr>
             }
@@ -40,9 +45,13 @@
             <tr>
                 <td>{{ dept.name }}</td>
                 <td>{{ dept.description }}</td>
-                <td>
-                    <button class="btn btn-primary">Actualizar</button>
-                    <button class="btn btn-danger"(click)="removeDepartment(dept._id)">Eliminar</button>
+                <td class="action-buttons">
+                    <button class="btn btn-primary" routerLink="/manage-departments">
+                        Actualizar
+                    </button>
+                    <button class="btn btn-danger" (click)="removeDepartment(dept._id)">
+                        Eliminar
+                    </button>
                 </td>
             </tr>
             }
@@ -51,9 +60,13 @@
             <tr>
                 <td>{{ role.name }}</td>
                 <td>{{ role.description }}</td>
-                <td>
-                    <button class="btn btn-primary" onclick="">Actualizar</button>
-                    <button class="btn btn-danger"(click)="removeRole(role._id)">Eliminar</button>
+                <td class="action-buttons">
+                    <button class="btn btn-primary" routerLink="/manage-roles">
+                        Actualizar
+                    </button>
+                    <button class="btn btn-danger" (click)="removeRole(role._id)">
+                        Eliminar
+                    </button>
                 </td>
             </tr>
             }

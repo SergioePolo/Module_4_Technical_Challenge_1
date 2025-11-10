@@ -4,11 +4,12 @@ import { serviceDepartments } from '../../services/departments';
 import { serviceRoles } from '../../services/roles';
 import { serviceUsers } from '../../services/users';
 import Swal from 'sweetalert2';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-data-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './data-table.html',
   styleUrl: './data-table.css',
 })
