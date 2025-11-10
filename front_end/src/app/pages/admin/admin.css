@@ -1,0 +1,33 @@
+
+main{
+    margin: 30px;
+}
+
+h1{
+    text-align: center
+}
+
+.cardDiv {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.dataDiv {
+    display: flex;
+    width: 100%;
+    gap: 50px; /* space between tables */
+}
+
+.dataDiv > app-data-table {
+    flex: 1;
+    width: 100%;
+}
+
+.btn{
+    margin:5px
+}

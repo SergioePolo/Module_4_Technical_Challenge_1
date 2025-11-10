@@ -1,0 +1,20 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userForms{
+    border: solid 1px;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 30px;
+    width: 30%;
+}
+
+h1{
+    text-align: center;
+}
+.btn{
+    width: 100%;
+}
