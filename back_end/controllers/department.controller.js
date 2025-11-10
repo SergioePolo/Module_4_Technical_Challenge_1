@@ -33,7 +33,8 @@ export const createDepartment = async (req, res) => {
 export const listDepartment = async (req, res) => {
     try {
         const departments = await departmentModel.find();
-        
+        const count = await departmentModel.countDocuments({});
+
         if(departments.length === 0){
             return res.status(404).json({
                 msg: '¡Aún no has creado ningún departamento! Usa el botón "Crear nuevo departamento" para empezar.'
@@ -41,7 +42,8 @@ export const listDepartment = async (req, res) => {
         }
         else {
             return res.status(200).json({
-                data: departments
+                data: departments,
+                count: count
             })
         }
     } catch (error) {

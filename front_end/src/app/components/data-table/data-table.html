@@ -2,31 +2,62 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                @if (type === 'users') {
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Rol</th>
+                <th>Departamento</th>
+                <th>Acciones</th>
+                } @else if (type === 'departments') {
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+                } @else if (type === 'roles') {
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+                }
             </tr>
         </thead>
         <tbody>
+            @if (type === 'users') {
+            @for (user of data; track user.id) {
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>{{ user.code }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.last_name1 }} {{ user.last_name2 }}</td>
+                <td>{{user.roleId.name}}</td>
+                <td>{{user.departmentId.name}}</td>
+                <td>
+                    <button class="btn btn-primary">Actualizar</button>
+                    <button class="btn btn-danger"(click)="removeUser(user._id)">Eliminar</button>
+                </td>
             </tr>
+            }
+            } @else if (type === 'departments') {
+            @for (dept of data; track dept.id) {
             <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>{{ dept.name }}</td>
+                <td>{{ dept.description }}</td>
+                <td>
+                    <button class="btn btn-primary">Actualizar</button>
+                    <button class="btn btn-danger"(click)="removeDepartment(dept._id)">Eliminar</button>
+                </td>
             </tr>
+            }
+            } @else if (type === 'roles') {
+            @for (role of data; track role.id) {
             <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
+                <td>{{ role.name }}</td>
+                <td>{{ role.description }}</td>
+                <td>
+                    <button class="btn btn-primary" onclick="">Actualizar</button>
+                    <button class="btn btn-danger"(click)="removeRole(role._id)">Eliminar</button>
+                </td>
             </tr>
+            }
+            }
         </tbody>
     </table>
 </main>

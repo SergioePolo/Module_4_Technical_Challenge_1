@@ -1,18 +1,52 @@
 <main>
     <h1>Tablero de administración</h1>
+
     <h3>Información general</h3>
+
     <div class="cardDiv">
-        <app-data-cards></app-data-cards>
-        <app-data-cards></app-data-cards>
-        <app-data-cards></app-data-cards>
+        <!-- Usuarios -->
+        <main class="dataCard">
+            <div class="informationDiv">
+                <h2>{{ userCount }}</h2>
+                <p>Usuarios</p>
+            </div>
+            <div class="iconDiv">
+                <i class="bi bi-people"></i>
+            </div>
+        </main>
+
+        <!-- Departamentos -->
+        <main class="dataCard">
+            <div class="informationDiv">
+                <h2>{{ departmentCount }}</h2>
+                <p>Departamentos</p>
+            </div>
+            <div class="iconDiv">
+                <i class="bi bi-building"></i>
+            </div>
+        </main>
+
+        <!-- Roles -->
+        <main class="dataCard">
+            <div class="informationDiv">
+                <h2>{{ roleCount }}</h2>
+                <p>Roles</p>
+            </div>
+            <div class="iconDiv">
+                <i class="bi bi-person-badge"></i>
+            </div>
+        </main>
     </div>
+
     <h3>Detalle de información</h3>
+
     <div class="informationButtons">
-        <button type="button" class="btn btn-secondary">Usuarios</button>
-        <button type="button" class="btn btn-secondary">Departamentos</button>
-        <button type="button" class="btn btn-secondary">Roles</button>
+        <button type="button" class="btn btn-secondary" (click)="showTable('users')">Usuarios</button>
+        <button type="button" class="btn btn-secondary" (click)="showTable('departments')">Departamentos</button>
+        <button type="button" class="btn btn-secondary" (click)="showTable('roles')">Roles</button>
     </div>
+
     <div class="dataDiv">
-        <app-data-table></app-data-table>
+        <app-data-table [data]="tableData" [type]="selectedTable" (updated)="bringData()"></app-data-table>
     </div>
 </main>

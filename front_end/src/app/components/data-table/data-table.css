@@ -1,7 +1,31 @@
-main{
-    margin: 20px;
+main {
+  margin: 20px;
+  width: 100%;
 }
 
-thead{
-    text-align: center;
+table {
+  width: 100%;
+  background-color: white;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  text-align: center;
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.btn {
+  margin-right: 5px;
 }

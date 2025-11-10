@@ -35,7 +35,7 @@ export const createUser = async (req, res) =>{
 export const listUsers = async (req, res) =>{
     try {
         const users = await userModel.find().populate('roleId', 'name').populate('departmentId', 'name');
-
+        const count = await userModel.countDocuments({});
         if(users.length === 0){
             return res.status(404).json({
                 msg: '¡Aún no has creado ningún usuario! Usa el botón "Crear nuevo usuario" para empezar.'
@@ -43,7 +43,8 @@ export const listUsers = async (req, res) =>{
         }
         else {
             return res.status(200).json({
-                data: users
+                data: users,
+                count: count
             })
         }
     } catch (error) {

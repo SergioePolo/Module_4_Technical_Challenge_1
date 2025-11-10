@@ -33,7 +33,7 @@ export const createRole = async (req, res) => {
 export const listRoles = async (req, res) => {
     try {
         const roles = await roleModel.find();
-        
+        const count = await roleModel.countDocuments({});
         if(roles.length === 0){
             return res.status(404).json({
                 msg: '¡Aún no has creado ningún rol! Usa el botón "Crear nuevo rol" para empezar.'
@@ -41,7 +41,8 @@ export const listRoles = async (req, res) => {
         }
         else {
             return res.status(200).json({
-                data: roles
+                data: roles,
+                count: count
             })
         }
     } catch (error) {
