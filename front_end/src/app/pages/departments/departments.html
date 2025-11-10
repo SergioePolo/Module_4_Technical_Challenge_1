@@ -1,13 +1,13 @@
 <main>
-    <form class="userForms">
+    <form class="userForms" [formGroup]="departmentForm" (ngSubmit)="handleSubmit()">
         <h1>Formulario de departamentos</h1>
         <div class="mb-3">
             <label class="form-label">Nombre del departamento</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" formControlName="name">
         </div>
         <div class="mb-3">
             <label class="form-label">Descripción</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" formControlName="name">
         </div>
         <button type="submit" class="btn btn-primary">Crear departamento</button>
     </form>

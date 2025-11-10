@@ -2,7 +2,6 @@ import { userModel } from '../models/users.models.js';
 
 export const createUser = async (req, res) =>{
     const user = req.body;
-
     const userFound = await userModel.findOne({
         where: {
             code: user.code
@@ -16,7 +15,11 @@ export const createUser = async (req, res) =>{
             })
         }
         else{
-            await userModel.create(user);
+            const newUser = {
+                ...user,
+                userStatus: true
+            }
+            await userModel.create(newUser);
             return res.status(200).json({
                 msg: 'El usuario se ha creado correctamente. Ahora está disponible para su uso.'
             })

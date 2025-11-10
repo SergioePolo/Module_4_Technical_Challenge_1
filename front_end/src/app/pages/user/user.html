@@ -1,38 +1,39 @@
 <main>
-    <form class="userForms">
+    <form class="userForms" [formGroup]="userForm" (ngSubmit)="handleSubmit()">
         <h1>Formulario de usuarios</h1>
         <div class="mb-3">
             <label class="form-label">Código de usuario</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" formControlName="code">
         </div>
         <div class="mb-3">
             <label class="form-label">Nombre</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" formControlName="name">
         </div>
         <div class="mb-3">
             <label class="form-label">Primer apellido</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" formControlName="last_name1">
         </div>
         <div class="mb-3">
             <label class="form-label">Segundo Apellido</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" formControlName="last_name2">
         </div>
         <div class="mb-3">
             <label class="form-label">Rol</label>
-            <select class="form-select">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="form-select" formControlName="roleId">
+                <option value="" disabled selected>Selecciona un rol</option>
+                @for (role of roleData; track role._id) {
+                <option [value]="role._id">{{ role.name }}</option>
+                }
             </select>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Departamento</label>
-            <select class="form-select">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="form-select" formControlName="departmentId">
+                <option value="" disabled selected>Selecciona un departamento</option>
+                @for (dept of departmentData; track dept._id) {
+                <option [value]="dept._id">{{ dept.name }}</option>
+                }
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Crear usuario</button>
